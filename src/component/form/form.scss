@@ -1,0 +1,49 @@
+@import './../../paint/color';
+
+.my-form {
+    label {
+        width: 100%;
+        font-size: 20px;
+        input {
+            display: block;
+            width: 100%;
+            border: solid 2px $Light-grayish-violet;
+            border-radius: 10px;
+            padding: 10px;
+            font-size: 25px;
+            &::placeholder {
+                color: $Light-grayish-violet;
+            }
+        }
+    }
+    .expiration-cvv {
+        gap: 10px;
+    }
+    .submit {
+        width: 100%;
+        background-color: $Very-dark-violet;
+    }
+}
+
+
+@media screen and (min-width: 700px) {
+    .my-form {
+        max-width: 300px;
+        // background-color: yellow;
+        label {
+            width: 100%;
+            font-size: 15px;
+            input {
+                padding: 3px 10px;
+                font-size: 18px;
+            }
+        }
+        // .expiration-cvv {
+        //     gap: 10px;
+        // }
+        // .submit {
+        //     width: 100%;
+        //     background-color: $Very-dark-violet;
+        // }
+    }
+}

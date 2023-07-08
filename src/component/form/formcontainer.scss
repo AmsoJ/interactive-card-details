@@ -1,0 +1,12 @@
+@import './../../paint/color';
+
+.my-form-container {
+    min-height: calc(100vh - 300px);
+    // background-color: yellow;
+}
+
+@media screen and (min-width: 700px) {
+    .my-form-container {
+        min-height: 100vh;
+    }
+}
