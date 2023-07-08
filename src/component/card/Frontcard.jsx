@@ -13,7 +13,7 @@ function Frontcard() {
         <article className="card-body mt-4">
             <p className="card-number text-center text-white">{number ? number : "0000 0000 0000 0000"}</p>
             <section className="owner text-white d-flex align-item-center justify-content-between">
-                <p className="owner-name text-uppercase">{name ? name : "Jane Appleseed"}</p>
+                <p className="owner-name text-uppercase">{name ? name.slice(0,17) : "Jane Appleseed"}</p>
                 <p className="expiration">
                     <span className="month">{month ? month : "00"}</span> / <span className="year">{year ? year : "00"}</span>
                 </p>

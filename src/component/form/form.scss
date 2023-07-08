@@ -8,11 +8,18 @@
             display: block;
             width: 100%;
             border: solid 2px $Light-grayish-violet;
+            outline: none;
             border-radius: 10px;
-            padding: 10px;
+            padding: 5px;
             font-size: 25px;
+            &.danger {
+                border-color: $Red;
+            }
             &::placeholder {
                 color: $Light-grayish-violet;
+            }
+            &:focus {
+                border-color: $Blue-dim;
             }
         }
     }
@@ -22,6 +29,18 @@
     .submit {
         width: 100%;
         background-color: $Very-dark-violet;
+    }
+}
+.alert {
+    visibility: hidden;
+    &.show {
+        visibility: visible;
+        &.danger {
+            color: $Red;
+        }
+        &.success {
+            color: $Blue;
+        }
     }
 }
 

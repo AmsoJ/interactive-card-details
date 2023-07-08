@@ -2,17 +2,11 @@ import './form.scss';
 import { useGlobalContext } from '../../globalHooks/context';
 
 function Form() {
-    const {formData, updateFormInfo} = useGlobalContext();
+    const {formData, updateFormInfo, validateForm} = useGlobalContext();
     // destructuring
     const {name, number, month, year, cvv} = formData;
 
-    return <form action="" className="my-form pt-5 pt-md-0" onSubmit={e => {
-        e.preventDefault();
-        const allInputs = [...document.querySelectorAll("input")];
-        allInputs.forEach(item => {
-            console.log(item.parentElement.querySelector(".alert"));
-        })
-    }}>
+    return <form action="" className="my-form pt-5 pt-md-0" onSubmit={e => validateForm(e)}>
         {/* card owner name */}
         <label htmlFor="name" className="text-uppercase">
             cardholder name
@@ -24,7 +18,7 @@ function Form() {
                 value={name}
                 onChange={e => updateFormInfo(e)}
             />
-            <span className="badge p-1 alert">jsoe</span>
+            <span className="badge p-1 alert text-capitalize">jsoe</span>
         </label>
         {/* card number */}
         <label htmlFor="number" className="text-uppercase">
@@ -36,8 +30,9 @@ function Form() {
                 placeholder="e.g. 1234 5678 9123 0000"
                 value={number}
                 onChange={e => updateFormInfo(e)}
+                maxLength="19"
             />
-            <span className="badge p-1 alert">jsoe</span>
+            <span className="badge p-1 alert text-capitalize">jsoe</span>
         </label>
         {/* expiration date input */}
         <div className="expiration-cvv d-flex">
@@ -55,7 +50,7 @@ function Form() {
                             onChange={e => updateFormInfo(e)}
                             maxLength="2"
                         />
-                        <span className="badge p-1 alert">jsoe</span>
+                        <span className="badge p-1 alert text-capitalize">jsoe</span>
                     </div>
 
                     <div className="year col-6">
@@ -69,7 +64,7 @@ function Form() {
                             onChange={e => updateFormInfo(e)}
                             maxLength="2"
                         />
-                        <span className="badge p-1 alert">jsoe</span>
+                        <span className="badge p-1 alert text-capitalize d-none">jsoe</span>
                     </div>
                 </div>
             </label>
@@ -85,7 +80,7 @@ function Form() {
                     onChange={e => updateFormInfo(e)}
                     maxLength="3"
                 />
-                <span className="badge p-1 alert">jsoe</span>
+                <span className="badge p-1 alert text-capitalize">jsoe</span>
             </label>
         </div>
 
