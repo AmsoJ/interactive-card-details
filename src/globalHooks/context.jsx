@@ -6,6 +6,11 @@ const AppContext = createContext();
 
 // create an app provider
 const AppProvider = ({children}) => {
+    const [state, setState] = useState(false);
+    
+    const changeState = () => {
+        setState(false);
+    }
 
     const [formData, setFormData] = useState({
         name: "",
@@ -54,6 +59,7 @@ const AppProvider = ({children}) => {
     const validateForm = (e) => {
         e.preventDefault();
         const allInputs = [...document.querySelectorAll("input")];
+        let num = 0;
         allInputs.forEach(eachInput => {
             let alert = eachInput.parentElement.querySelector(".alert");
             let identity = eachInput.name;
@@ -96,12 +102,17 @@ const AppProvider = ({children}) => {
                         default: 
                             console.log("no errors");
                     }
+
                     eachInput.classList.add("danger");
                     setTimeout(() => {
                         eachInput.classList.remove("danger");
                     }, 3000);
                 }else {
                     alarm(alert, "correct format", "success");
+                    num++;
+                    if(num === 5) {
+                        setState(true);
+                    }
                 }
             }else {
                 // console.log(identity);
@@ -118,7 +129,9 @@ const AppProvider = ({children}) => {
     return <AppContext.Provider value={{
         formData,
         updateFormInfo,
-        validateForm
+        validateForm,
+        state,
+        changeState
     }}
         >
             {children}

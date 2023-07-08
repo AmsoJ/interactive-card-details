@@ -2,11 +2,11 @@ import './form.scss';
 import { useGlobalContext } from '../../globalHooks/context';
 
 function Form() {
-    const {formData, updateFormInfo, validateForm} = useGlobalContext();
+    const {formData, updateFormInfo, validateForm, changeState, state} = useGlobalContext();
     // destructuring
     const {name, number, month, year, cvv} = formData;
 
-    return <form action="" className="my-form pt-5 pt-md-0" onSubmit={e => validateForm(e)}>
+    return <form action="" className={`my-form pt-5 pt-md-0 ${state ? null : "show"}`} onSubmit={e => validateForm(e)}>
         {/* card owner name */}
         <label htmlFor="name" className="text-uppercase">
             cardholder name
@@ -84,7 +84,7 @@ function Form() {
             </label>
         </div>
 
-        <button className='submit text-white text-center btn text-uppercase'>
+        <button className='submit text-white text-center btn text-uppercase' onClick={changeState}>
             confirm
         </button>
     </form>

@@ -1,6 +1,10 @@
 @import './../../paint/color';
 
 .my-form {
+    display: none;
+    &.show {
+        display: block;
+    }
     label {
         width: 100%;
         font-size: 20px;

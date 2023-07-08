@@ -1,0 +1,17 @@
+@import './../../paint//color';
+
+.confirm {
+    width: 100%;
+    max-width: 400px;
+    min-height: 300px;
+    display: none;
+    // background-color: yellow;
+    &.show {
+        display: block;
+    }
+    button {
+        width: 60%;
+        background-color: $Very-dark-violet;
+        color: $Light-grayish-violet;
+    }
+}
